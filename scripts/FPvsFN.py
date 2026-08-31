@@ -44,7 +44,7 @@ def tradeOFF(input_file1, input_file2, output_file):
     horizontalalignment="right"
 )
     ax.set_title('Trade Off curve: False Positive vs False Negatives')
-    ax.set_xlabel('Treashold value')
+    ax.set_xlabel('Threshold value')
     ax.set_ylabel('Number of Errors')
 
     ax.grid(True, which="both", ls="--", alpha=0.35)
