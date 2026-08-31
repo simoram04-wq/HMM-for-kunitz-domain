@@ -20,6 +20,7 @@ def heatmap(input_file1, input_file2, output_file, th):
             if float(v[0])==float(th):
                 values1.append([[int(v[9]),int(v[10])],[int(v[11]),int(v[8])]])
     cm1=np.array(values1[0])
+
     values2=[]
     with open(input_file2, 'r') as f:
         for line in f:
@@ -31,17 +32,17 @@ def heatmap(input_file1, input_file2, output_file, th):
 # heatmap construction
     fig, axes = plt.subplots(1, 2, figsize=(10, 4))
 
-    sns.heatmap(cm1, annot=True, fmt="d", cmap="Yellows", ax=axes[0], cbar=False,
+    sns.heatmap(cm1, annot=True, fmt="d", cmap="Blues", ax=axes[0], cbar=False,
                 xticklabels=["Pred Neg", "Pred Pos"],
                 yticklabels=["True Neg", "True Pos"])
-    axes[0].set_title("Validation set 1")
+    axes[0].set_title(f"Heatmap th: {th} - Validation set 1")
     axes[0].set_xlabel("Predicted label")
     axes[0].set_ylabel("True label")
 
-    sns.heatmap(cm2, annot=True, fmt="d", cmap="Oranges", ax=axes[1], cbar=False,
+    sns.heatmap(cm2, annot=True, fmt="d", cmap="Greens", ax=axes[1], cbar=False,
                 xticklabels=["Pred Neg", "Pred Pos"],
                 yticklabels=["True Neg", "True Pos"])
-    axes[1].set_title("Validation set 2")
+    axes[1].set_title(f"Heatmap th: {th} - Validation set 2")
     axes[1].set_xlabel("Predicted label")
     axes[1].set_ylabel("True label")
 
